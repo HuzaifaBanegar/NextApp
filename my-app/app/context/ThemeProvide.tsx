@@ -6,7 +6,9 @@ interface ThemeContextType {
   setMode: (mode: string) => void;
 }
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+const ThemeContext = createContext < ThemeContextType | undefined > (undefined);
+
+// Theme Wrapper to wrap around the app ------------------------------------------------------------------
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mode, setMode] = useState("");
@@ -31,6 +33,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     </ThemeContext.Provider>
   );
 }
+
+// Custom Theme Hook for theme change-------------------------------------------------------------------------
 
 export function useTheme() {
   const context = useContext(ThemeContext);
